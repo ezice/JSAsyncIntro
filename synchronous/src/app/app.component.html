@@ -1,0 +1,10 @@
+<form>
+  <label for="firstName">First Name</label>
+  <input name="firstName" [(ngModel)]="firstName" type="text" placeholder="Enter First Name" />
+  <label for="lastName">Last Name</label>
+  <input name="lastName" [(ngModel)]="lastName" type="text" placeholder="Enter Last Name" />
+  <label for="sisterName">Sister Name</label>
+  <select class="form-control" id="sisterName" required>
+    <option *ngFor="let name of sisterNames" [value]="sisterName">{{name}}</option>
+  </select>
+</form>
