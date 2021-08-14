@@ -20,17 +20,20 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'localhost:3000/url', false);  // `false` makes the request synchronous -- it's also deprecated.
-    request.send();
-
-    if (request.status === 200) {
-      this.sisterNames = JSON.parse(request.responseText);
-      console.log("sisterNames = " + this.sisterNames);
-    } else {
-      console.log("Error in REST call: " + request.responseText);
-    }
-
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://localhost:3000/url", true);
+    xhr.onload = function (e) {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          console.log(xhr.responseText);
+        } else {
+          console.error(xhr.statusText);
+        }
+      }
+    };
+    xhr.onerror = function (e) {
+      console.error(xhr.statusText);
+    };
+    xhr.send(null); 
   }
-
 }
