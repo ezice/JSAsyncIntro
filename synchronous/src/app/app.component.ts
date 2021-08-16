@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     var request = new XMLHttpRequest();
-    request.open('GET', 'localhost:3000/url', false);  // `false` makes the request synchronous -- it's also deprecated.
+    request.open('GET', 'http://localhost:3000/url', false);  // `false` makes the request synchronous -- it's also deprecated.
     request.send();
 
     if (request.status === 200) {
