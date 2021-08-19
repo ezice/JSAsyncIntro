@@ -9,14 +9,14 @@ export class AppComponent implements OnInit {
 
   firstName: string;
   lastName: string;
-  sisterName: string;
-  sisterNames: string[];
+  siblingName: string;
+  siblingNames: string[];
 
   constructor() {
     this.firstName = '';
     this.lastName = '';
-    this.sisterName = '';
-    this.sisterNames = [];
+    this.siblingName = '';
+    this.siblingNames = [];
   }
 
   ngOnInit(): void {
@@ -25,8 +25,8 @@ export class AppComponent implements OnInit {
     request.send();
 
     if (request.status === 200) {
-      this.sisterNames = JSON.parse(request.responseText);
-      console.log("sisterNames = " + this.sisterNames);
+      this.siblingNames = JSON.parse(request.responseText);
+      console.log("siblingNames = " + this.siblingNames);
     } else {
       console.log("Error in REST call: " + request.responseText);
     }
